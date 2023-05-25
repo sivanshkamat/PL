@@ -15,8 +15,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { TeamDetailComponent } from './dialog/team-detail/team-detail.component';
 @NgModule({
   declarations: [
-    AppComponent,
-    TeamDetailComponent,    
+    AppComponent,    
   ],
   imports: [
     BrowserModule,
