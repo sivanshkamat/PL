@@ -1,0 +1,23 @@
+<div class=".dialog-contents">
+    <h1>Match 5 :</h1>
+    
+    <mat-form-field>
+      <mat-label>Team A</mat-label>
+      <mat-select>
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let state of states" [value]="state">{{
+          state
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Team B</mat-label>
+      <mat-select>
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let state of states" [value]="state">{{
+          state
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  <div>
