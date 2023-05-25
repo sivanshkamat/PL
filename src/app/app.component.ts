@@ -15,8 +15,8 @@ export class AppComponent {
 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
     this.dialog.open(DialogComponent, {
-      width: '40%',
-      height: '400px',
+      width: '30%',
+      height: '450px',
       enterAnimationDuration,
       exitAnimationDuration,
     });

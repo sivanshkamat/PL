@@ -13,7 +13,7 @@ import { FormFillComponent } from './form-fill/form-fill.component';
   styleUrls: ['./dialog.component.scss'],
   standalone: true,
   imports: [MatToolbarModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatToolbarModule,
-    MatIconModule, MatButtonModule, NgFor],
+    MatIconModule, MatButtonModule, NgFor, FormFillComponent],
   
 })
 export class DialogComponent {

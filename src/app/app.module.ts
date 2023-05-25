@@ -12,7 +12,7 @@ import {MatButtonModule} from '@angular/material/button'; //buttons
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component'; //dialog
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { TeamDetailComponent } from './team-detail/team-detail.component';
+import { TeamDetailComponent } from './dialog/team-detail/team-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
