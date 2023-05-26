@@ -13,10 +13,12 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component'; //dialog
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { TeamDetailComponent } from './dialog/team-detail/team-detail.component';
+import {MatTableModule} from '@angular/material/table';
+import { PointsTableComponent } from './points-table/points-table.component';
 @NgModule({
   declarations: [
     AppComponent,
-    TeamDetailComponent,    
+    TeamDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,9 @@ import { TeamDetailComponent } from './dialog/team-detail/team-detail.component'
     MatButtonModule,
     MatDialogModule,
     MatFormFieldModule,
-    DialogComponent
+    DialogComponent,
+    MatTableModule,
+    PointsTableComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
