@@ -24,7 +24,7 @@ import {MatTableModule} from '@angular/material/table';
 })
 export class PointsTableComponent {
   dataSource = ELEMENT_DATA;
-  columnsToDisplay = ['Team Name', 'Matches Played', 'Won', 'Lost', 'Draw', 'Goals Scored', 'Points'];
+  columnsToDisplay = ['name', 'matches', 'won', 'lost', 'draw', 'totalgoals', 'points'];
   expandedTeam: TeamDetails | any;
   columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
 }

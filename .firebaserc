@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "premier-league-5d699": {
+      "hosting": {
+        "Premiere-League": [
+          "premier-league-5d699"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "premier-league-5d699"
+  }
+}
