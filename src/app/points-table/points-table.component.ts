@@ -5,6 +5,11 @@ import {MatButtonModule} from '@angular/material/button';
 import {NgFor, NgIf} from '@angular/common';
 import {MatTableModule} from '@angular/material/table';
 
+import { getDatabase, ref, onValue} from "firebase/database";
+import { FirebaseService } from '../services/firebase.service';
+import { TeamList } from '../team-detail/team-description';
+import { TeamDataType } from '../team-detail/team-description';
+
 /**
  * @title Table with expandable rows
  */
@@ -19,43 +24,22 @@ import {MatTableModule} from '@angular/material/table';
       transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
     ]),
   ],
+  providers: [FirebaseService],
   standalone: true,
-  imports: [MatTableModule, NgFor, MatButtonModule, NgIf, MatIconModule],
+  imports: [MatTableModule, NgFor, MatButtonModule, NgIf, MatIconModule, ],
 })
+
 export class PointsTableComponent {
-  dataSource = ELEMENT_DATA;
+  dataSource = TeamList;
   columnsToDisplay = ['name', 'matches', 'won', 'lost', 'draw', 'totalgoals', 'points'];
-  expandedTeam: TeamDetails | any;
+  expandedTeam: TeamDataType | any;
   columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
-}
 
-export interface TeamDetails {
-  name: string;
-  matches: number;
-  won: number;
-  lost: number;
-  draw: number;
-  totalgoals: number;
-  points: number;
-}
+// constructor(){};
+// const starCountRef = ref(db, 'TeamList/' + postId + '/starCount');
+// onValue(starCountRef, (snapshot) => {
+//   const data = snapshot.val();
+//   updateStarCount(postElement, data);
+// });
 
-const ELEMENT_DATA: TeamDetails[] = [
-  {
-    name: 'Man City',
-    matches: 5,
-    won: 2,
-    lost: 1,
-    draw: 2,
-    totalgoals:7,
-    points: 21
-  },
-  {
-    name: 'Arsenal',
-    matches: 5,
-    won: 2,
-    lost: 1,
-    draw: 2,
-    totalgoals:7,
-    points: 21
-  },
-];
+}

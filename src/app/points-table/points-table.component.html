@@ -8,7 +8,9 @@
   <ng-container matColumnDef="expand">
     <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
     <td mat-cell *matCellDef="let team">
-      <button mat-icon-button aria-label="expand row" (click)="(expandedTeam = expandedTeam === team ? null : team); $event.stopPropagation()">
+      <button mat-icon-button aria-label="expand row" (click)="(
+        expandedTeam = expandedTeam === team ? null : team);
+        $event.stopPropagation()">
         <mat-icon *ngIf="expandedTeam !== team">keyboard_arrow_down</mat-icon>
         <mat-icon *ngIf="expandedTeam === team">keyboard_arrow_up</mat-icon>
       </button>

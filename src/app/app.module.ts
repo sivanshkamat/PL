@@ -15,11 +15,15 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { TeamDetailComponent } from './dialog/team-detail/team-detail.component';
 import {MatTableModule} from '@angular/material/table';
 import { PointsTableComponent } from './points-table/points-table.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideDatabase,getDatabase } from '@angular/fire/database';
 @NgModule({
   declarations: [
     AppComponent,
     TeamDetailComponent,
-  ],
+ ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -31,7 +35,10 @@ import { PointsTableComponent } from './points-table/points-table.component';
     MatFormFieldModule,
     DialogComponent,
     MatTableModule,
-    PointsTableComponent
+    PointsTableComponent,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideDatabase(() => getDatabase())
   ],
   providers: [],
   bootstrap: [AppComponent]
