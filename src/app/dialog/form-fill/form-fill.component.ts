@@ -6,7 +6,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon'; //icon
 import { MatButtonModule } from '@angular/material/button';
 import {NgFor} from '@angular/common';
-import { TeamDetailComponent } from '../team-detail/team-detail.component';
+import { TeamDetailComponent } from '../../team-detail/team-detail.component';
 import {MatDialog, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
 @Component({
   selector: 'app-form-fill',

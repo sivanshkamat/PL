@@ -7,7 +7,7 @@ import {MatIconModule} from '@angular/material/icon'; //icon
 import { MatButtonModule } from '@angular/material/button';
 import {NgFor} from '@angular/common';
 import { FormFillComponent } from './form-fill/form-fill.component';
-import { TeamDetailComponent } from './team-detail/team-detail.component';
+import { TeamDetailComponent } from '../team-detail/team-detail.component';
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',

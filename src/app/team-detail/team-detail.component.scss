@@ -1,0 +1,15 @@
+.detail-content {
+
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    padding: 10px;
+}
+.back-btn{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+// :host{
+// background-color: red;
+// }
