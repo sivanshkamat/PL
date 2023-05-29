@@ -23,8 +23,7 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
   declarations: [
     AppComponent,
     TeamDetailComponent,
- ],
-  imports: [
+ ],  imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

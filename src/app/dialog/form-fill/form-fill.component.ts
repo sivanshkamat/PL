@@ -6,13 +6,15 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon'; //icon
 import { MatButtonModule } from '@angular/material/button';
 import {NgFor} from '@angular/common';
+import { TeamDetailComponent } from '../team-detail/team-detail.component';
+import {MatDialog, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
 @Component({
   selector: 'app-form-fill',
   templateUrl: './form-fill.component.html',
   styleUrls: ['./form-fill.component.scss'],
   standalone: true,
   imports: [MatToolbarModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatToolbarModule,
-    MatIconModule, MatButtonModule, NgFor],
+    MatIconModule, MatButtonModule, NgFor, TeamDetailComponent],
   
 })
 export class FormFillComponent {
@@ -29,4 +31,14 @@ export class FormFillComponent {
     'Al Nassar'
     
   ];
+
+  constructor(public dialog: MatDialog) {}
+  openDetail(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(TeamDetailComponent, {
+      width: '30%',
+      height: '450px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+  }
 }
