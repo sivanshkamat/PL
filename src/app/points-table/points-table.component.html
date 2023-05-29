@@ -1,10 +1,9 @@
-<table mat-table
-       [dataSource]="dataSource" multiTemplateDataRows
-       class="mat-elevation-z8">
-  <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
-    <th mat-header-cell *matHeaderCellDef> {{column}} </th>
-    <td mat-cell *matCellDef="let team"> {{team[column]}} </td>
+<table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
+  <ng-container matColumnDef="{{ column }}" *ngFor="let column of columnsToDisplay">
+    <th mat-header-cell *matHeaderCellDef>{{ column }}</th>
+    <td mat-cell *matCellDef="let team">{{ team[column] }}</td>
   </ng-container>
+
   <ng-container matColumnDef="expand">
     <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
     <td mat-cell *matCellDef="let team">
@@ -15,32 +14,28 @@
     </td>
   </ng-container>
 
-  <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
   <ng-container matColumnDef="expandedDetail">
     <td mat-cell *matCellDef="let team" [attr.colspan]="columnsToDisplayWithExpand.length">
-      <div class="example-team-detail"
-           [@detailExpand]="team == expandedTeam ? 'expanded' : 'collapsed'">
+      <div class="example-team-detail" [@detailExpand]="team == expandedTeam ? 'expanded' : 'collapsed'">
         <div class="example-team-diagram">
-            <div class="example-team-name"> Team Name: {{team.name}} </div>
-            <div class="example-team-symbol"> Matches Played: {{team.matches}} </div>
-            <div class="example-team-name"> Goals Scored: {{team.totalgoals}} </div>
-            <div class="example-team-symbol">Matches Won: {{team.won}} </div>
-            <div class="example-team-weight"> Match Tied:{{team.draw}} </div>
-            <div class="example-team-position"> Matches Lost: {{team.lost}} </div>
-            <div class="example-team-position"> Total Points: {{team.points}} </div>
+          <div class="example-team-name">Team Name: {{ team.name }}</div>
+          <div class="example-team-symbol">Matches Played: {{ team.matches }}</div>
+          <div class="example-team-name">Goals Scored: {{ team.totalgoals }}</div>
+          <div class="example-team-symbol">Matches Won: {{ team.won }}</div>
+          <div class="example-team-weight">Match Tied: {{ team.draw }}</div>
+          <div class="example-team-position">Matches Lost: {{ team.lost }}</div>
+          <div class="example-team-position">Total Points: {{ team.points }}</div>
         </div>
         <div class="example-team-description">
-          {{team.description}}
+          {{ team.description }}
         </div>
       </div>
     </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand"></tr>
-  <tr mat-row *matRowDef="let team; columns: columnsToDisplayWithExpand;"
-      class="example-team-row"
-      [class.example-expanded-row]="expandedTeam === team"
-      (click)="expandedTeam = expandedTeam === team ? null : team">
+  <tr mat-row *matRowDef="let team; columns: columnsToDisplayWithExpand;" class="example-team-row"
+      [class.example-expanded-row]="expandedTeam === team" (click)="expandedTeam = expandedTeam === team ? null : team">
   </tr>
   <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
 </table>
