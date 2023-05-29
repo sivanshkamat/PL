@@ -5,6 +5,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {NgFor, NgIf} from '@angular/common';
 import {MatTableModule} from '@angular/material/table';
 import { TeamDetails, TeamList } from '../team-detail/teamlist';
+import { FirebaseService } from '../services/firebase.service';
 
 
 /**
@@ -24,9 +25,18 @@ import { TeamDetails, TeamList } from '../team-detail/teamlist';
   standalone: true,
   imports: [MatTableModule, NgFor, MatButtonModule, NgIf, MatIconModule],
 })
+
 export class PointsTableComponent {
-  dataSource = TeamList;
+  // dataSource = TeamList;
+  dataSource: any[] = [];
   columnsToDisplay = ['name', 'matches', 'won', 'lost', 'draw', 'totalgoals', 'points'];
   expandedTeam: TeamDetails | any;
   columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
+
+  constructor(private firebaseService: FirebaseService) {
+    this.firebaseService.fetchPointsTableData().subscribe(data => {
+      this.dataSource = Object.values(data);
+    });
+  }
+  
 }
