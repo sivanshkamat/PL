@@ -2,12 +2,14 @@
     flex: 1 1 auto;
   }
   .content{
-    padding: 2%;
+    padding: 8%;
+    
 
   .points-table{
-    width: 80%;
+    width: 60%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
+}

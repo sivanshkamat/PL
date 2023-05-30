@@ -13,13 +13,11 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component'; //dialog
 import {MatFormFieldModule} from '@angular/material/form-field';
 
-import { TeamDetailComponent } from './dialog/team-detail/team-detail.component';
+import { TeamDetailComponent } from './team-detail/team-detail.component';
 import { LoginComponent } from './login-page/login/login.component';
 import { SignupComponent } from './login-page/signup/signup.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
-import { MatInputModule } from '@angular/material/input';
-import { TeamDetailComponent } from './team-detail/team-detail.component';
 import {MatTableModule} from '@angular/material/table';
 import { PointsTableComponent } from './points-table/points-table.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
@@ -29,7 +27,6 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
 @NgModule({
   declarations: [
     AppComponent,
-    TeamDetailComponent,
     LoginComponent,
     SignupComponent,    
   ],
@@ -43,8 +40,9 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
     MatDialogModule,
     MatFormFieldModule,
     DialogComponent,
+    TeamDetailComponent,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
     MatTableModule,
     PointsTableComponent,
     TeamDetailComponent,
