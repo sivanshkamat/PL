@@ -27,7 +27,6 @@ import { FirebaseService } from '../services/firebase.service';
 })
 
 export class PointsTableComponent {
-  // dataSource = TeamList;
   dataSource: any[] = [];
   columnsToDisplay = ['name', 'matches', 'won', 'lost', 'draw', 'totalgoals', 'points'];
   expandedTeam: TeamDetails | any;

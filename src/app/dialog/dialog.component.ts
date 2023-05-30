@@ -18,17 +18,4 @@ import { TeamDetailComponent } from '../team-detail/team-detail.component';
   
 })
 export class DialogComponent {
-  states: string[] = [
-    'Man City',
-    'Arsenal',
-    'Liverpool',
-    'PSG',
-    'Real Madrid',
-    'Man United',
-    'Barcelona',
-    'Chelsea',
-    'Aston Villa',
-    'Al Nassar'
-    
-  ];
 }
