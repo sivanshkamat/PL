@@ -12,6 +12,7 @@ import {MatButtonModule} from '@angular/material/button'; //buttons
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component'; //dialog
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 import { TeamDetailComponent } from './team-detail/team-detail.component';
 import {MatTableModule} from '@angular/material/table';
@@ -33,6 +34,7 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
     MatButtonModule,
     MatDialogModule,
     MatFormFieldModule,
+    MatInputModule,
     DialogComponent,
     MatTableModule,
     PointsTableComponent,

@@ -39,28 +39,36 @@ export class FirebaseService {
     );
   }
 
-  updatePointstableData( team1: Team, team2: Team, winner: Team) {
+  updatePointstableData( team1: Team, team2: Team, team1Goals: number, team2Goals: number) {
 
     console.log(team1,team2);
-    if (winner === team1) {
+    if (team1Goals>team2Goals) {
       team1.won += 1;
       team1.matches += 1;
       team1.points += 3;
+      team1.totalgoals +=team1Goals;
       team2.matches += 1;
       team2.lost +=1;
-    } else if (winner === team2) {
+      team2.totalgoals +=team2Goals;
+    }
+     else if (team1Goals<team2Goals) {
       team2.won += 1;
       team2.matches += 1;
       team2.points += 3;
+      team2.totalgoals +=team2Goals;
       team1.matches += 1;
       team1.lost +=1;
-    } else {
+      team1.totalgoals +=team1Goals;
+    } 
+    else {
       team1.draw += 1;
       team1.matches += 1;
       team1.points += 1;
       team2.draw += 1;
       team2.matches += 1;
       team2.points += 1;
+      team2.totalgoals +=team2Goals;
+      team1.totalgoals +=team1Goals;
     }
     // Update the data in the Realtime Database using the reference of each team
     const team1Ref = ref(this.db, `TeamList/${team1.name}`);
