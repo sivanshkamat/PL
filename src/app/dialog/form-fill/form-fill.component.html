@@ -1,31 +1,43 @@
 <div class="dialog-contents">
-    <h1>Match 5 :</h1>
-    
     <mat-form-field>
-      <mat-label>Team A</mat-label>
-      <mat-select>
-        <mat-option>None</mat-option>
-        <mat-option *ngFor="let state of states" [value]="state">{{
-          state
-        }}</mat-option>
-      </mat-select>
-    </mat-form-field>
-  
-    <mat-form-field>
-      <mat-label>Team B</mat-label>
-      <mat-select>
-        <mat-option>None</mat-option>
-        <mat-option *ngFor="let state of states" [value]="state">{{
-          state
+      <mat-label>Team 1</mat-label>
+      <mat-select [(ngModel)]="form.value.team1">
+        <mat-option *ngFor="let team of dataSource" [value]="team">{{
+          team.name
         }}</mat-option>
       </mat-select>
     </mat-form-field>
 
-    <h1>Who won the match?</h1> 
-    <div class="buttons">
-    <button mat-raised-button color="accent" (click)="openDetail('0ms', '0ms') ">Team A</button>
-    <button mat-raised-button color="accent">Team B</button>
-    <button mat-raised-button color="accent">Match Tied</button>
-    </div>
-  
-<div>
+    <mat-form-field>
+      <mat-label>Team 2</mat-label>
+      <mat-select [(ngModel)]="form.value.team2">
+        <mat-option *ngFor="let team of dataSource" [value]="team">{{
+          team.name
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Who won the match?</mat-label>
+      <mat-select [(ngModel)]="form.value.winner">
+        <mat-option [value]="form.value.team1">{{
+          form.value.team1.name
+        }}</mat-option>
+        <mat-option [value]="form.value.team2">{{
+          form.value.team2.name
+        }}</mat-option>
+        <mat-option value="match_tied">Match Tied</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="accent"
+      type="button"
+      (click)="updateTable()"
+      
+
+    >
+      Submit
+    </button>
+</div>
