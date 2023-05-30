@@ -1,43 +1,45 @@
 <div class="dialog-contents">
-    <mat-form-field>
-      <mat-label>Team 1</mat-label>
-      <mat-select [(ngModel)]="form.value.team1">
-        <mat-option *ngFor="let team of dataSource" [value]="team">{{
-          team.name
-        }}</mat-option>
-      </mat-select>
-    </mat-form-field>
+  <mat-form-field>
+    <mat-label>Team 1</mat-label>
+    <mat-select [(ngModel)]="form.value.team1">
+      <mat-option *ngFor="let team of dataSource" [value]="team">{{
+        team.name
+      }}</mat-option>
+    </mat-select>
+  </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Team 2</mat-label>
-      <mat-select [(ngModel)]="form.value.team2">
-        <mat-option *ngFor="let team of dataSource" [value]="team">{{
-          team.name
-        }}</mat-option>
-      </mat-select>
-    </mat-form-field>
+  <mat-form-field>
+    <mat-label>Team 2</mat-label>
+    <mat-select [(ngModel)]="form.value.team2">
+      <mat-option *ngFor="let team of dataSource" [value]="team">{{
+        team.name
+      }}</mat-option>
+    </mat-select>
+  </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Who won the match?</mat-label>
-      <mat-select [(ngModel)]="form.value.winner">
-        <mat-option [value]="form.value.team1">{{
-          form.value.team1.name
-        }}</mat-option>
-        <mat-option [value]="form.value.team2">{{
-          form.value.team2.name
-        }}</mat-option>
-        <mat-option value="match_tied">Match Tied</mat-option>
-      </mat-select>
-    </mat-form-field>
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Goals: {{ form.value.team1.name }}</mat-label>
+          <input matInput [(ngModel)]="form.value.team1Goals" value="team1Goals" type="number"/>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Goals: {{ form.value.team2.name }}</mat-label>
+          <input matInput [(ngModel)]="form.value.team2Goals" value="team2Goals" type="number"/>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
 
-    <button
-      mat-raised-button
-      color="accent"
-      type="button"
-      (click)="updateTable()"
-      
-
-    >
-      Submit
-    </button>
+  <button
+    mat-raised-button
+    color="accent"
+    type="button"
+    (click)="updateTable()"
+  >
+    Submit
+  </button>
 </div>

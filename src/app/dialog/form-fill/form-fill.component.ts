@@ -18,7 +18,7 @@ import { FormsModule, FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./form-fill.component.scss'],
   standalone: true,
   imports: [MatToolbarModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatToolbarModule,
-    MatIconModule, MatButtonModule, NgFor, TeamDetailComponent, FormsModule, ],
+    MatIconModule, MatButtonModule, NgFor, TeamDetailComponent, FormsModule,MatInputModule ],
   
 })
 export class FormFillComponent {
@@ -55,12 +55,13 @@ export class FormFillComponent {
   updateTable(){
     const team1= this.form.value.team1;
     const team2 = this.form.value.team2;
-    const winner = this.form.value.winner;
-    // console.log(team1,team2,winner);
+    const team1Goals = this.form.value.team1Goals;
+    const team2Goals = this.form.value.team2Goals;
+    // console.log(team1Goals, team2Goals);
     try
     {
-    if (team1 && team2 && winner) {
-      this.firebaseService.updatePointstableData( team1, team2, winner);
+    if (team1 && team2 ) {
+      this.firebaseService.updatePointstableData( team1, team2, team1Goals, team2Goals);
       this.dialog.closeAll();
     }
   }
