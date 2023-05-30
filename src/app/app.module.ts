@@ -12,8 +12,6 @@ import {MatButtonModule} from '@angular/material/button'; //buttons
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component'; //dialog
 import {MatFormFieldModule} from '@angular/material/form-field';
-
-import { TeamDetailComponent } from './team-detail/team-detail.component';
 import { LoginComponent } from './login-page/login/login.component';
 import { SignupComponent } from './login-page/signup/signup.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -40,12 +38,10 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
     MatDialogModule,
     MatFormFieldModule,
     DialogComponent,
-    TeamDetailComponent,
     ReactiveFormsModule,
     MatInputModule,
     MatTableModule,
     PointsTableComponent,
-    TeamDetailComponent,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase())

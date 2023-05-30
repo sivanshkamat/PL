@@ -6,9 +6,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon'; //icon
 import { MatButtonModule } from '@angular/material/button';
 import {NgFor} from '@angular/common';
-import { TeamDetailComponent } from '../../team-detail/team-detail.component';
 import {MatDialog} from '@angular/material/dialog';
-import { FirebaseService, Team } from 'src/app/services/firebase.service';
+import { FirebaseService } from 'src/app/services/firebase.service';
 import { FormsModule, FormBuilder, FormGroup } from '@angular/forms';
 
 
@@ -18,7 +17,7 @@ import { FormsModule, FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./form-fill.component.scss'],
   standalone: true,
   imports: [MatToolbarModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatToolbarModule,
-    MatIconModule, MatButtonModule, NgFor, TeamDetailComponent, FormsModule,MatInputModule ],
+    MatIconModule, MatButtonModule, NgFor, FormsModule,MatInputModule ],
   
 })
 export class FormFillComponent {
@@ -39,16 +38,6 @@ export class FormFillComponent {
     this.firebaseService.fetchPointsTableData().subscribe(data => {
       this.teamList = data.map((team: any) => team.name);
       this.dataSource = Object.values(data);
-    });
-  }
-    
-
-  openDetail(enterAnimationDuration: string, exitAnimationDuration: string): void {
-    this.dialog.open(TeamDetailComponent, {
-      width: '30%',
-      height: '450px',
-      enterAnimationDuration,
-      exitAnimationDuration,
     });
   }
 

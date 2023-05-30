@@ -6,11 +6,16 @@ import { SignupComponent } from './login-page/signup/signup.component';
 import { PointsTableComponent } from './points-table/points-table.component';
 
 const routes: Routes = [
-{
-  path: 'login',
-  pathMatch: 'full',
-  component: LoginComponent,
-},
+  {
+    path: 'login',
+    pathMatch: 'full',
+    component: LoginComponent,
+  },
+  {
+    path: 'dialog',
+    pathMatch: 'full',
+    component: DialogComponent,
+  },
 {
   path: '',
   redirectTo: '/login',

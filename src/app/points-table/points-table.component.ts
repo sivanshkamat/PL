@@ -4,7 +4,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {NgFor, NgIf} from '@angular/common';
 import {MatTableModule} from '@angular/material/table';
-import { TeamDetails, TeamList } from '../team-detail/teamlist';
+import { Team } from '../services/firebase.service';
 import { FirebaseService } from '../services/firebase.service';
 
 
@@ -29,7 +29,7 @@ import { FirebaseService } from '../services/firebase.service';
 export class PointsTableComponent {
   dataSource: any[] = [];
   columnsToDisplay = ['name', 'matches', 'won', 'lost', 'draw', 'totalgoals', 'points'];
-  expandedTeam: TeamDetails | any;
+  expandedTeam: Team | any;
   columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
 
   constructor(private firebaseService: FirebaseService) {
