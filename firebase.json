@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "Premiere-League",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}

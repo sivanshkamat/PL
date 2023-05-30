@@ -7,27 +7,15 @@ import {MatIconModule} from '@angular/material/icon'; //icon
 import { MatButtonModule } from '@angular/material/button';
 import {NgFor} from '@angular/common';
 import { FormFillComponent } from './form-fill/form-fill.component';
+import { TeamDetailComponent } from '../team-detail/team-detail.component';
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.scss'],
   standalone: true,
   imports: [MatToolbarModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatToolbarModule,
-    MatIconModule, MatButtonModule, NgFor, FormFillComponent],
+    MatIconModule, MatButtonModule, NgFor, FormFillComponent, TeamDetailComponent],
   
 })
 export class DialogComponent {
-  states: string[] = [
-    'Man City',
-    'Arsenal',
-    'Liverpool',
-    'PSG',
-    'Real Madrid',
-    'Man United',
-    'Barcelona',
-    'Chelsea',
-    'Aston Villa',
-    'Al Nassar'
-    
-  ];
 }
