@@ -6,7 +6,10 @@ import {NgFor, NgIf} from '@angular/common';
 import {MatTableModule} from '@angular/material/table';
 import { Team } from '../services/firebase.service';
 import { FirebaseService } from '../services/firebase.service';
-
+import { AuthService } from '../services/auth.service';
+import { CommonModule } from '@angular/common';
+import { Router, RouterLink } from '@angular/router';
+import { NonNullableFormBuilder } from '@angular/forms';
 
 /**
  * @title Table with expandable rows
@@ -23,7 +26,7 @@ import { FirebaseService } from '../services/firebase.service';
     ]),
   ],
   standalone: true,
-  imports: [MatTableModule, NgFor, MatButtonModule, NgIf, MatIconModule],
+  imports: [MatTableModule, NgFor, MatButtonModule, NgIf, MatIconModule, CommonModule, RouterLink ],
 })
 
 export class PointsTableComponent {
@@ -32,7 +35,12 @@ export class PointsTableComponent {
   expandedTeam: Team | any;
   columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
 
-  constructor(private firebaseService: FirebaseService) {
+  constructor(
+    private firebaseService: FirebaseService,
+    public auth:AuthService,
+    public router:Router,
+    private fb: NonNullableFormBuilder
+    ){
     this.firebaseService.fetchPointsTableData().subscribe(data => {
       this.dataSource = Object.values(data);
     });

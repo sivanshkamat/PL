@@ -23,7 +23,7 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
-import 'firebase/compat/auth';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +32,7 @@ import 'firebase/compat/auth';
   ],
   imports: [
     BrowserModule,
+    
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
@@ -49,7 +50,7 @@ import 'firebase/compat/auth';
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore())
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

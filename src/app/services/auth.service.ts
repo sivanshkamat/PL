@@ -8,7 +8,7 @@ import {
   UserInfo,
   UserCredential,
 } from '@angular/fire/auth';
-import { concatMap, from, Observable, of, switchMap } from 'rxjs';
+import {  from, Observable,} from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +16,7 @@ import { concatMap, from, Observable, of, switchMap } from 'rxjs';
 export class AuthService {
   currentUser$ = authState(this.auth);
 
-  constructor(private auth: Auth) {}
+  constructor(public auth: Auth) {}
 
   signUp(email: string, password: string): Observable<UserCredential> {
     return from(createUserWithEmailAndPassword(this.auth, email, password));
