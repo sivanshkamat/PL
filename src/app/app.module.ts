@@ -22,6 +22,8 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +32,7 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
   ],
   imports: [
     BrowserModule,
+    
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
@@ -44,9 +47,10 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
     PointsTableComponent,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
-    provideDatabase(() => getDatabase())
+    provideDatabase(() => getDatabase()),
+    provideFirestore(() => getFirestore())
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

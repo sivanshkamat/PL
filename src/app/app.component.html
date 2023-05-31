@@ -1,12 +1,32 @@
 <mat-toolbar color="primary">
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
     <mat-icon>sports_soccer</mat-icon>
   </button>
   <span>Premiere League</span>
   <span class="example-spacer"></span>
-  <button mat-raised-button color="accent" (click)="openDialog('0ms', '0ms')">
+  <ng-container *ngIf="auth.currentUser$ | async as user">
+    
+  <button
+    mat-raised-button
+    color="accent"
+    class="btn-space"
+    (click)="openDialog('0ms', '0ms')"
+  >
     New Match
   </button>
+ <button
+      mat-raised-button
+      color="accent"
+      class="btn-space"
+      (click)="logout()"
+    >
+      Logout
+    </button>
+  </ng-container>
 </mat-toolbar>
 
 <div class="content">

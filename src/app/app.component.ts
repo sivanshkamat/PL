@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { DialogComponent } from './dialog/dialog.component';
+import {MatDialog} from '@angular/material/dialog';
+import { AuthService } from './services/auth.service';
+import { Router } from '@angular/router';
 
 
-import {MatDialog, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,7 +13,10 @@ import {MatDialog, MatDialogRef, MatDialogModule} from '@angular/material/dialog
 export class AppComponent {
   title = 'Premiere-League';
 
-  constructor(public dialog: MatDialog) {}
+  constructor(
+    public dialog: MatDialog,
+    public auth:AuthService,
+    private router: Router) {}
 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
     this.dialog.open(DialogComponent, {
@@ -21,4 +26,11 @@ export class AppComponent {
       exitAnimationDuration,
     });
   }
+
+  logout(){
+    this.auth.logout().subscribe(()=> {
+      this.router.navigate(['']);
+    })
+  }
+
 }
