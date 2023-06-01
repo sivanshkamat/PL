@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { NonNullableFormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 import { AuthService } from 'src/app/services/auth.service';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { ToastComponent } from '../toast/toast.component';
 
 @Component({
   selector: 'app-login',
@@ -15,11 +17,14 @@ export class LoginComponent implements OnInit {
     password: ['', Validators.required],
   });
 
+  dialogRef!: MatDialogRef<ToastComponent>; // Initialize with '!' to indicate it will be assigned in ngOnInit
+
   constructor(
     private authService: AuthService,
     private toast: HotToastService,
     private router: Router,
-    private fb: NonNullableFormBuilder
+    private fb: FormBuilder,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {}
@@ -33,23 +38,35 @@ export class LoginComponent implements OnInit {
   }
 
   submit() {
-    const { email, password } = this.loginForm.value;
-
-    if (!this.loginForm.valid || !email || !password) {
+    if (this.loginForm.invalid) {
       return;
     }
-
-    this.authService
-      .login(email, password)
-      .pipe(
-        this.toast.observe({
-          success: 'Logged in successfully',
-          loading: 'Logging in...',
-          error: ({ message }) => `There was an error: ${message} `,
-        })
-      )
-      .subscribe(() => {
+  
+    const { email, password } = this.loginForm.value;
+  
+    this.dialogRef = this.dialog.open(ToastComponent, {
+      disableClose: true, // Prevent closing the dialog by clicking outside or pressing escape
+    });
+  
+    this.dialogRef.componentInstance.toastConfig = {
+      success: 'Logged in successfully',
+      loading: 'Logging in...',
+      error: (error) => `There was an error: ${error?.message || 'Unknown error'}`,
+    };
+  
+    this.authService.login(email, password).subscribe(
+      () => {
+        // Handle successful login
         this.router.navigate(['/home']);
-      });
+        this.dialogRef.close(); // Close the dialog after successful login
+      },
+      (error) => {
+        // Handle login error
+        const errorMessage = error?.message || 'An error occurred during login';
+        this.toast.error(errorMessage);
+        this.dialogRef.close(); // Close the dialog on login error
+      }
+    );
   }
+  
 }
