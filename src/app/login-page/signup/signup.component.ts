@@ -13,7 +13,8 @@ import { HotToastService } from '@ngneat/hot-toast';
 import { User } from 'firebase/auth';
 import { switchMap } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth.service';
-
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { ToastComponent } from '../toast/toast.component';
 
 export function passwordsMatchValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
@@ -35,12 +36,14 @@ export function passwordsMatchValidator(): ValidatorFn {
 })
 export class SignupComponent implements OnInit {
   signUpForm: FormGroup;
+  dialogRef!: MatDialogRef<ToastComponent>; // Initialize with '!' to indicate it will be assigned in ngOnInit
 
   constructor(
     private authService: AuthService,
     private router: Router,
     private toast: HotToastService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private dialog: MatDialog
   ) {
     this.signUpForm = this.fb.group(
       {
@@ -60,24 +63,32 @@ export class SignupComponent implements OnInit {
 
   submit() {
     const { email, password } = this.signUpForm.value;
-    
 
-    if (this.signUpForm.valid  || !email || !password) {
+    if (this.signUpForm.valid || !email || !password) {
       return;
     }
-    console.log(email);
-
-    this.authService
-    .signUp(email, password)
-    .pipe(
-      this.toast.observe({
-        loading: 'Signing up...',
-        success: 'Congrats! You are all signed up',
-        error: ({ message }) => `${message}`,
-      })
-    )
-    .subscribe(() => {
-      this.router.navigate(['/home']);
+    this.dialogRef = this.dialog.open(ToastComponent, {
+      disableClose: true, // Prevent closing the dialog by clicking outside or pressing escape
     });
-}
+
+    this.dialogRef.componentInstance.toastConfig = {
+      loading: 'Signing up...',
+      success: 'Congrats! You are all signed up',
+      error: (error) =>
+        `There was an error: ${error?.message || 'Unknown error'}`,
+    };
+
+    this.authService.signUp(email, password).subscribe({
+      next: () => {
+        this.router.navigate(['/login']);
+        this.dialogRef.close(); // Close the dialog after successful login
+      },
+      error: (error) => {
+        // Handle signup error
+        const errorMessage = error?.message || 'An error occurred during signup';
+        this.toast.error(errorMessage);
+        this.dialogRef.close(); // Close the dialog on signup error
+      }
+    });
+  }
 }
