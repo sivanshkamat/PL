@@ -34,7 +34,6 @@ import { ToastComponent } from './login-page/toast/toast.component';
   ],
   imports: [
     BrowserModule,
-    
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,

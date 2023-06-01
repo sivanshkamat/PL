@@ -1,7 +1,6 @@
-import { ImplicitReceiver } from '@angular/compiler';
 import { Injectable } from '@angular/core';
-import { Database, ref, get, set, onValue } from '@angular/fire/database';
-import { Observable, from } from 'rxjs';
+import { Database, ref, set, onValue } from '@angular/fire/database';
+import { Observable} from 'rxjs';
 import { map } from 'rxjs/operators';
 
 export interface Team {

@@ -1,37 +1,8 @@
 import { Component, Input } from '@angular/core';
 @Component({
   selector: 'app-toast',
-  template: `
-    <div class="toast" [class.success]="isSuccess" [class.loading]="isLoading" [class.error]="isError">
-      {{ message }}
-    </div>
-  `,
-  styles: [`
-    .toast {
-      position: fixed;
-      top: 50px; /* Adjust the top value as needed */
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 10px 20px;
-      border-radius: 4px;
-      color: #fff;
-      font-weight: bold;
-      z-index: 9999;
-      text-align: center; /* Center the text horizontally */
-    }
-
-    .success {
-      background-color: #ffd740;
-    }
-
-    .loading {
-      background-color: #ffd740;
-    }
-
-    .error {
-      background-color: #ffd740;
-    }
-  `]
+  templateUrl: './toast.component.html',
+  styleUrls: ['./toast.component.scss']
 })
 
 export class ToastComponent {

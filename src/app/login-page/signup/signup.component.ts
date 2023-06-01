@@ -1,20 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { HotToastService } from '@ngneat/hot-toast';
+import { AuthService } from 'src/app/services/auth.service';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { ToastComponent } from '../toast/toast.component';
 import {
   AbstractControl,
-  FormControl,
   FormGroup,
   FormBuilder,
   ValidationErrors,
   ValidatorFn,
   Validators,
 } from '@angular/forms';
-import { Router } from '@angular/router';
-import { HotToastService } from '@ngneat/hot-toast';
-import { User } from 'firebase/auth';
-import { switchMap } from 'rxjs/operators';
-import { AuthService } from 'src/app/services/auth.service';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { ToastComponent } from '../toast/toast.component';
 
 export function passwordsMatchValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {

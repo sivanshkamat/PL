@@ -1,14 +1,12 @@
 import { Injectable } from '@angular/core';
+import {  from, Observable,} from 'rxjs';
 import {
   Auth,
   signInWithEmailAndPassword,
   authState,
   createUserWithEmailAndPassword,
-  updateProfile,
-  UserInfo,
   UserCredential,
 } from '@angular/fire/auth';
-import {  from, Observable,} from 'rxjs';
 
 @Injectable({
   providedIn: 'root',

@@ -54,19 +54,17 @@ export class LoginComponent implements OnInit {
       error: (error) => `There was an error: ${error?.message || 'Unknown error'}`,
     };
   
-    this.authService.login(email, password).subscribe(
-      () => {
-        // Handle successful login
+    this.authService.login(email, password).subscribe({
+      next: () => {
         this.router.navigate(['/home']);
         this.dialogRef.close(); // Close the dialog after successful login
       },
-      (error) => {
-        // Handle login error
-        const errorMessage = error?.message || 'An error occurred during login';
+      error: (error) => {
+        // Handle signup error
+        const errorMessage = error?.message || 'An error occurred during signup';
         this.toast.error(errorMessage);
-        this.dialogRef.close(); // Close the dialog on login error
+        this.dialogRef.close(); // Close the dialog on signup error
       }
-    );
+    });
   }
-  
 }

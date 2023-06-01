@@ -76,6 +76,9 @@
     ></tr>
   </table>
 </ng-container>
-
-  <span class="center margin-top"> Please Login to see the table
-    <a class="sign-up-link" routerLink="/login">&nbsp; Go to login page</a> </span>
+<ng-container *ngIf="!(auth.currentUser$ | async )as user">
+  <span class="center margin-top">
+    Please Login to see the table
+    <a class="sign-up-link" routerLink="/login"> &nbsp; Go to login page</a>
+  </span>
+</ng-container>
