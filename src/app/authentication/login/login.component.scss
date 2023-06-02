@@ -16,9 +16,6 @@
     right: 0;
   }
   
-  .form-container {
-    max-width: 400px;
-  }
   
   .row {
     display: flex;
@@ -40,8 +37,8 @@ body {
   display: block;
   max-width: 300px;
   margin: auto;
-
-  background: #eceff1;
+  opacity: 0.6;
+  background: #306385;
   padding: 48px;
   border-radius: 16px;
 
