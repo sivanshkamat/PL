@@ -3,11 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PointsTableComponent } from './points-table/points-table.component';
 
 const routes: Routes = [
-{
-  path: '',
-  redirectTo: '/auth/login',
-  pathMatch: 'full'
-},
+
 {
   path: 'home',
   pathMatch: 'full',
@@ -16,7 +12,12 @@ const routes: Routes = [
 {
   path: "auth", loadChildren: () => import('./authentication/authentication.module')
 .then(module => module.AuthenticationModule)
-}
+},
+{
+  path: '',
+  redirectTo: '/auth/login',
+  pathMatch: 'full'
+},
 ];
 
 @NgModule({

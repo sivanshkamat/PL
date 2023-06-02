@@ -19,6 +19,11 @@ export interface Team {
 export class FirebaseService {
   constructor(public db: Database) {}
 
+  
+  /**
+   * 
+   * @returns 
+   */
   fetchPointsTableData(): Observable<Team[]> {
     const databaseRef = ref(this.db, 'TeamList');
 
@@ -30,7 +35,7 @@ export class FirebaseService {
           snapshot.forEach((childSnapshot) => {
             const team: Team = childSnapshot.val();
             teamList.push(team);
-          });0
+          });
           observer.next(teamList);
         },
         (error) => observer.error(error)

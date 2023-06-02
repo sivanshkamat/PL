@@ -1,18 +1,19 @@
 
-html,
-body {
-  height: 100%;
-}
+
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-}
+  background-image: url('./assets/_c1_6997.img');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh ;
+  }
 
 .form-container {
   display: block;
   max-width: 300px;
   margin: auto;
-
   background: #eceff1;
   padding: 48px;
   border-radius: 16px;

@@ -40,10 +40,10 @@ export class PointsTableComponent {
     public auth:AuthService,
     public router:Router,
     private fb: NonNullableFormBuilder
-    ){
-    this.firebaseService.fetchPointsTableData().subscribe(data => {
-      this.dataSource = Object.values(data);
-    });
-  }
-  
+    )
+    {
+      this.firebaseService.fetchPointsTableData().subscribe(data => {
+        this.dataSource = Object.values(data);
+      });
+    }
 }
