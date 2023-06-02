@@ -12,8 +12,8 @@ import {MatButtonModule} from '@angular/material/button'; //buttons
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component'; //dialog
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { LoginComponent } from './login-page/login/login.component';
-import { SignupComponent } from './login-page/signup/signup.component';
+import { LoginComponent } from './authentication/login/login.component';
+import { SignupComponent } from './authentication/signup/signup.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
@@ -23,14 +23,14 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
-import { ToastComponent } from './login-page/toast/toast.component';
+import { ToastComponent } from './authentication/toast/toast.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignupComponent,
-    ToastComponent,    
+    ToastComponent,   
   ],
   imports: [
     BrowserModule,

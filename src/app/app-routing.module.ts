@@ -1,35 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DialogComponent } from './dialog/dialog.component';
-import { LoginComponent } from './login-page/login/login.component';
-import { SignupComponent } from './login-page/signup/signup.component';
+import { LoginComponent } from './authentication/login/login.component';
+import { SignupComponent } from './authentication/signup/signup.component';
 import { PointsTableComponent } from './points-table/points-table.component';
+import { AuthenticationModule } from './authentication/authentication.module';
 
 const routes: Routes = [
-  {
-    path: 'login',
-    pathMatch: 'full',
-    component: LoginComponent,
-  },
-  {
-    path: 'dialog',
-    pathMatch: 'full',
-    component: DialogComponent,
-  },
 {
   path: '',
-  redirectTo: '/login',
+  redirectTo: '/auth/login',
   pathMatch: 'full'
-},
-{
-  path: 'signup',
-  pathMatch: 'full',
-  component: SignupComponent,
 },
 {
   path: 'home',
   pathMatch: 'full',
   component: PointsTableComponent,
+},
+{
+  path: "auth", loadChildren: () => import('./authentication/authentication.module')
+.then(module => module.AuthenticationModule)
 }
 ];
 
