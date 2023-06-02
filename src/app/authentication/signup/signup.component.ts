@@ -77,7 +77,7 @@ export class SignupComponent implements OnInit {
 
     this.authService.signUp(email, password).subscribe({
       next: () => {
-        this.router.navigate(['/login']);
+        this.router.navigate(['auth/login']);
         this.dialogRef.close(); // Close the dialog after successful login
       },
       error: (error) => {
