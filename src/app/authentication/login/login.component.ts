@@ -5,11 +5,13 @@ import { HotToastService } from '@ngneat/hot-toast';
 import { AuthService } from 'src/app/services/auth.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ToastComponent } from '../toast/toast.component';
+import { Auth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
+  providers: [Auth, AuthService], 
 })
 export class LoginComponent implements OnInit {
   loginForm = this.fb.group({
