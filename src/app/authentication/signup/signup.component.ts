@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
+import { Auth } from '@angular/fire/auth';
 import { AuthService } from 'src/app/services/auth.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ToastComponent } from '../toast/toast.component';
@@ -30,6 +31,7 @@ export function passwordsMatchValidator(): ValidatorFn {
   selector: 'app-sign-up',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss'],
+  providers: [Auth, AuthService],
 })
 export class SignupComponent implements OnInit {
   signUpForm: FormGroup;
